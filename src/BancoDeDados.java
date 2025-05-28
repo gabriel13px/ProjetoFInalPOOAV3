@@ -18,15 +18,17 @@ public class BancoDeDados {
     private FileWriter writer = null;
     private String linha;
     private ArrayList<Objects> Titulos;
-
     public BancoDeDados(String csvFile){
     this.csvFile = csvFile;
     this.arquivo = new File(this.csvFile);
     aberturaBancoDeDados();
 }
+
     public ArrayList getTitulos() {
         return Titulos;
     }
+
+
     private void aberturaBancoDeDados() {
         if (arquivo.exists()) {
             System.out.println("O banco de dados já existe.");
@@ -36,7 +38,7 @@ public class BancoDeDados {
             try {
                 writer = new FileWriter(csvFile);
 
-                writer.append("Nome,Idade,Email\n");
+                writer.append("Nome,Classificação,Estrelas,\n");
 
                 System.out.println("Arquivo CSV criado com sucesso!");
 
@@ -86,9 +88,9 @@ public class BancoDeDados {
         try {
             writer = new FileWriter(csvFile, true);
             //trocar por dados de um titulo novo na função dee adicionar titulo
-            writer.append("Alice,30,alice@example.com\n");
-            writer.append("Bob,25,bob@example.com\n");
-            writer.append("Charlie,35,charlie@example.com\n");
+//            writer.append("Alice,30,alice@example.com\n");
+//            writer.append("Bob,25,bob@example.com\n");
+//            writer.append("Charlie,35,charlie@example.com\n");
 
             System.out.println("Arquivo CSV atualizado com sucesso!");
 
