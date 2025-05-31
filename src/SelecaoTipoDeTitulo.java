@@ -101,7 +101,7 @@ public class SelecaoTipoDeTitulo extends JFrame {
                 return;
             }
 
-            //ArrayList<Titulo> listaDeTitulos = new ArrayList<>();
+            //ArrayList<ConteudoAudiovisual> listaDeTitulos = new ArrayList<>();
            // JPanelCadastroTitulo painelCadastro = new JPanelCadastroTitulo(listaDeTitulos);
           //  JFrame frameCadastro = new JFrame("Cadastro de " + tipoSelecionado);
           //  frameCadastro.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
