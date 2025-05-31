@@ -10,6 +10,8 @@ import java.util.Objects;
 //vai ter uma opção de formulario para adicionar o filme, serie bla bla bla, é bom ver se vai permitir que o usuario escreva
 //caso não se for botoes isso simplifica a logica do banco de dados pois poderia se deixar um int ao inves de string
 //a função vai atualizar o banco de dados, mas custa ver se é melhor ja adicionar diretamente ao app ou ele recarregar com o novo filme adicionado
+//private String nome;
+
 public class BancoDeDados {
 
     private String csvFile;
@@ -37,9 +39,7 @@ public class BancoDeDados {
             System.out.println("O banco de dados NÃO existe. sera necessario criar um novo");
             try {
                 writer = new FileWriter(csvFile);
-
-                writer.append("Nome,Classificação,Estrelas,\n");
-
+                writer.append("Nome,Tipo,Imagem,Data de Lançamento,Duração em Minutos,Diretor,Classificação,Quantidade de Avaliações,sinopse,Gêneros\n");
                 System.out.println("Arquivo CSV criado com sucesso!");
 
             } catch (IOException e) {
@@ -66,15 +66,29 @@ public class BancoDeDados {
                     primeiraLinha = false;
                     continue;
                 }
-
                 String[] dados = linha.split(",");
+                //Nome,Tipo,Imagem,Data de Lançamento,Duração em Minutos,Diretor,Classificação,Quantidade de Avaliações,sinopse,Gêneros
 
+                switch(dados[1]){
+                    case "Serie":
+
+                        break;
+                    case "Filme":
+
+                        break;
+                    case "EpSerie":
+
+                        break;
+                    case "Documentario":
+
+                        break;
+
+                }
                 // Exibe os dados da linha(trocar por objeto)
                 for (String campo : dados) {
                     System.out.print(campo + " | ");
                 }
                 System.out.println();
-
 
             }
 
@@ -88,12 +102,7 @@ public class BancoDeDados {
         try {
             writer = new FileWriter(csvFile, true);
             //trocar por dados de um titulo novo na função dee adicionar titulo
-//            writer.append("Alice,30,alice@example.com\n");
-//            writer.append("Bob,25,bob@example.com\n");
-//            writer.append("Charlie,35,charlie@example.com\n");
-
             System.out.println("Arquivo CSV atualizado com sucesso!");
-
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -103,6 +112,16 @@ public class BancoDeDados {
                 e.printStackTrace();
             }
         }
+    }
+    public boolean IgualdadeTitulo(Object obj){
+        if (this == obj){
+            return true;
+        }
+        if (obj == null||this.getClass() != obj.getClass()){
+            return false;
+        }
+        teste Ti = (teste) obj;
+        return (CodigoIso.equals(pais.CodigoIso)&&CodigoIso.equals(pais.CodigoIso));
     }
 }
 
