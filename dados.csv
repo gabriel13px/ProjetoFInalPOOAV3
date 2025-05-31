@@ -1,4 +1,3 @@
-Nome,Idade,Email
-Alice,30,alice@example.com
-Bob,25bob@example.com
-Charlie,35,charlie@example.com
+Nome,Tipo,Imagem,Data de Lançamento,Duração em Minutos,Diretor,Classificação,Quantidade de Avaliações,sinopse,Gêneros
+titi,Filme,mmm,102,2,jj,10,2,besta,irado.besta.ga
+dada,Documentario,iii,02052006,10,clara,20,2,sei la,sim

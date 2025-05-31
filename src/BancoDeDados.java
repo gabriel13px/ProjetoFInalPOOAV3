@@ -4,7 +4,8 @@ import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
-import java.util.Objects;
+import java.util.HashSet;
+import java.util.Set;
 
 //creio que a forma que vai ser usado é, ao abrir o app ele verifica se o banco de dados existe e coloca para dentro do app
 //vai ter uma opção de formulario para adicionar o filme, serie bla bla bla, é bom ver se vai permitir que o usuario escreva
@@ -19,7 +20,7 @@ public class BancoDeDados {
     private File arquivo;
     private FileWriter writer = null;
     private String linha;
-    private ArrayList<Objects> Titulos;
+    public ArrayList<ConteudoAudiovisual> Titulos;
     public BancoDeDados(String csvFile){
     this.csvFile = csvFile;
     this.arquivo = new File(this.csvFile);
@@ -56,7 +57,7 @@ public class BancoDeDados {
         }
     }
     public void LerBancodeDados()  {
-        Titulos = new ArrayList<>();
+        Titulos = new ArrayList<ConteudoAudiovisual>();
 
         try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
             boolean primeiraLinha = true;
@@ -68,18 +69,36 @@ public class BancoDeDados {
                 }
                 String[] dados = linha.split(",");
                 //Nome,Tipo,Imagem,Data de Lançamento,Duração em Minutos,Diretor,Classificação,Quantidade de Avaliações,sinopse,Gêneros
+                //String tipo, String nome, String imagem, int ano, String sinopse, int duracao
+                String nome = dados[0];
+                String tipo = dados[1];
+                String imagem = dados[2];
+                int dataDeLançamento = Integer.parseInt(dados[3]);
+                int duracao = Integer.parseInt(dados[4]);
+                String diretor = dados[5];
+                int Classificacao = Integer.parseInt(dados[6]);
+                int quantidadeAvaliacoes = Integer.parseInt(dados[7]);
+                String sinopse = dados[8];
+                String[] partes = dados[9].split(".");
+                Set<String> generos = new HashSet<>();
+
+                for (String genero : partes) {
+                    generos.add(genero.trim());
+                }
+
 
                 switch(dados[1]){
                     case "Serie":
 
                         break;
                     case "Filme":
-
+                        Titulos.add(new Filme(nome,imagem,generos,dataDeLançamento,sinopse,duracao,quantidadeAvaliacoes,Classificacao));
                         break;
-                    case "EpSerie":
+                    case "Episodio":
 
                         break;
                     case "Documentario":
+                        Titulos.add(new Documentario(nome,imagem,dataDeLançamento,sinopse,duracao,quantidadeAvaliacoes,Classificacao));
 
                         break;
 
@@ -113,15 +132,15 @@ public class BancoDeDados {
             }
         }
     }
-    public boolean IgualdadeTitulo(Object obj){
-        if (this == obj){
-            return true;
-        }
-        if (obj == null||this.getClass() != obj.getClass()){
-            return false;
-        }
-        teste Ti = (teste) obj;
-        return (CodigoIso.equals(pais.CodigoIso)&&CodigoIso.equals(pais.CodigoIso));
-    }
+//    public boolean IgualdadeTitulo(Object obj){
+//        if (this == obj){
+//            return true;
+//        }
+//        if (obj == null||this.getClass() != obj.getClass()){
+//            return false;
+//        }
+//        teste Ti = (teste) obj;
+//        return (CodigoIso.equals(pais.CodigoIso)&&CodigoIso.equals(pais.CodigoIso));
+//    }
 }
 

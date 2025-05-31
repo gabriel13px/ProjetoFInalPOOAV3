@@ -6,6 +6,11 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
+        BancoDeDados arquivos = new BancoDeDados("dados.csv");
+        arquivos.Titulos.get(0).exibirInformacoes();
+        arquivos.Titulos.get(1).exibirInformacoes();
+
+
         // Lista de filmes (nome + imagem + avaliação)
         ArrayList<Filme> filmes = new ArrayList<>();
         filmes.add(new Filme("Matrix", "matrix.jpg", 9.0, "Uma realidade distorcida."));
