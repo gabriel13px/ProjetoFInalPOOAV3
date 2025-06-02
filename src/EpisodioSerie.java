@@ -1,18 +1,17 @@
 public class EpisodioSerie extends ConteudoAudiovisual {
     private int numeroTemporada;
     private int numeroEpisodio;
-    private Serie serie;
+    private String nomeSeriePertencente;
 
-    public EpisodioSerie(String nome, String imagem, int anoDeLancamento, String sinopse, int duracaoEmMinutos,
-                         int numeroTemporada, int numeroEpisodio, Serie serie) {
-        super("Episodio", nome, imagem, anoDeLancamento, sinopse, duracaoEmMinutos);
+    public EpisodioSerie(String nome, String imagem, int anoDeLancamento, String sinopse, int duracaoEmMinutos,String diretor,int totalDeAvaliacoes, int somaAvaliacoes, int numeroTemporada, int numeroEpisodio, String serie) {
+        super("Episodio", nome, imagem, anoDeLancamento, sinopse, duracaoEmMinutos,diretor);
         this.numeroTemporada = numeroTemporada;
         this.numeroEpisodio = numeroEpisodio;
-        this.serie = serie;
+        this.nomeSeriePertencente = serie;
     }
 
-    public Serie getSerie() {
-        return serie;
+    public String getSeriePertencente() {
+        return nomeSeriePertencente;
     }
 
     @Override
@@ -20,6 +19,10 @@ public class EpisodioSerie extends ConteudoAudiovisual {
         super.exibirInformacoes();
         System.out.println("Temporada: " + numeroTemporada);
         System.out.println("Episódio: " + numeroEpisodio);
-        System.out.println("Pertence à série: " + (serie != null ? serie.nome : "Desconhecida"));
+        System.out.println("Pertence à série: " + (nomeSeriePertencente != null ? nomeSeriePertencente : "Desconhecida"));
+    }
+    @Override
+    public String stringBancoDados() {
+        return new String(super.stringBancoDados()+",-,"+numeroTemporada+","+numeroEpisodio+","+ nomeSeriePertencente);
     }
 }

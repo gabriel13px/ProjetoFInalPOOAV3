@@ -7,12 +7,13 @@ public class Serie extends ConteudoAudiovisual {
     private List<EpisodioSerie> episodios = new ArrayList<>();
 
     public Serie(String nome, String imagem, Set<String> generos,
-                 int ano, String sinopse, int duracao) {
-        super("Serie", nome, imagem, ano, sinopse, duracao);
+                 int ano, String sinopse, int duracaoEmMinutos, String diretor) {
+        super("Serie", nome, imagem, ano, sinopse, duracaoEmMinutos,diretor);
         this.generos = generos;
     }
-
+    @Override
     public void adicionarEpisodio(EpisodioSerie episodio) {
+        super.adicionarEpisodio(episodio);
         episodios.add(episodio);
     }
 
@@ -21,5 +22,14 @@ public class Serie extends ConteudoAudiovisual {
         super.exibirInformacoes();
         System.out.println("Gêneros: " + String.join(", ", generos));
         System.out.println("Total de episódios: " + episodios.size());
+    }
+
+    @Override
+    public String stringBancoDados() {
+        String StringReturno = super.stringBancoDados()+","+String.join("&", generos)+",-,-,-\n";
+        for (EpisodioSerie episodio : episodios) {
+            StringReturno = StringReturno + episodio.stringBancoDados()+"\n";
+        }
+        return StringReturno;
     }
 }

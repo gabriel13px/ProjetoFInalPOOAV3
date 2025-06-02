@@ -7,8 +7,8 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
         BancoDeDados arquivos = new BancoDeDados("dados.csv");
-        arquivos.Titulos.get(0).exibirInformacoes();
-        arquivos.Titulos.get(1).exibirInformacoes();
+
+
 
 
         // Lista de filmes (nome + imagem + avaliação)
@@ -28,8 +28,9 @@ public class Main {
         painelCards.setPreferredSize(new Dimension(780, 1000));  // Ajuste para o painel rolável
 
         // Adiciona cada filme como um card
-        for (Filme filme : filmes) {
-            JPanel card = criarCard(filme);
+        ArrayList<ConteudoAudiovisual> Titulos = arquivos.Titulos;
+        for (ConteudoAudiovisual Titulo : Titulos) {
+            JPanel card = criarCard(Titulo);
             painelCards.add(card);
         }
 
@@ -42,19 +43,19 @@ public class Main {
     }
 
     // Função para criar um card de filme
-    public static JPanel criarCard(Filme filme) {
+    public static JPanel criarCard(ConteudoAudiovisual Titulo) {
         JPanel card = new JPanel();
         card.setLayout(new BorderLayout());
         card.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         card.setPreferredSize(new Dimension(200, 300));  // Tamanho do card
 
         // Imagem do filme
-        ImageIcon imagem = new ImageIcon(filme.imagem);
+        ImageIcon imagem = new ImageIcon(Titulo.getImagem());
         JLabel imgLabel = new JLabel(imagem);
         imgLabel.setHorizontalAlignment(JLabel.CENTER);
 
         // Título do filme
-        JLabel titulo = new JLabel(filme.nome);
+        JLabel titulo = new JLabel(Titulo.getNome());
         titulo.setHorizontalAlignment(JLabel.CENTER);
         titulo.setFont(new Font("Arial", Font.BOLD, 14));
 
@@ -65,7 +66,7 @@ public class Main {
         // Ação ao clicar no card
         card.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                exibirDetalhesDoFilme(filme);
+                exibirDetalhesDoFilme(Titulo);
             }
         });
 
@@ -73,27 +74,27 @@ public class Main {
     }
 
     // Exibe os detalhes do filme em uma nova janela
-    public static void exibirDetalhesDoFilme(Filme filme) {
-        JFrame detalheFrame = new JFrame(filme.nome);
+    public static void exibirDetalhesDoFilme(ConteudoAudiovisual Titulo) {
+        JFrame detalheFrame = new JFrame(Titulo.getNome());
         detalheFrame.setSize(400, 300);
 
         JPanel painel = new JPanel();
         painel.setLayout(new BoxLayout(painel, BoxLayout.Y_AXIS));
 
         // Imagem do filme
-        ImageIcon imagem = new ImageIcon(filme.imagem);
+        ImageIcon imagem = new ImageIcon(Titulo.getImagem());
         JLabel imgLabel = new JLabel(imagem);
         imgLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         // Informações do filme
-        JLabel titulo = new JLabel(filme.nome);
+        JLabel titulo = new JLabel(Titulo.getNome());
         titulo.setFont(new Font("Arial", Font.BOLD, 18));
         titulo.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        JLabel avaliacao = new JLabel("Avaliação: " + filme.avaliacao + "/10");
+        JLabel avaliacao = new JLabel("Avaliação: " +Titulo.getMediaAvaliacoes()  + "/10");
         avaliacao.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        JLabel descricao = new JLabel("<html><div style='width: 300px;'>" + filme.descricao + "</div></html>");
+        JLabel descricao = new JLabel("<html><div style='width: 300px;'>" + Titulo.getSinopse() + "</div></html>");
         descricao.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         // Botão para voltar

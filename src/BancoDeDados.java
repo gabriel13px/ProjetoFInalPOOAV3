@@ -16,7 +16,6 @@ import java.util.Set;
 public class BancoDeDados {
 
     private String csvFile;
-    //String csvFile = "C:\\Users\\SeuUsuario\\Documents\\dados.csv";
     private File arquivo;
     private FileWriter writer = null;
     private String linha;
@@ -36,11 +35,12 @@ public class BancoDeDados {
         if (arquivo.exists()) {
             System.out.println("O banco de dados já existe.");
             LerBancodeDados();
+            ReescreverDados();
         } else {
             System.out.println("O banco de dados NÃO existe. sera necessario criar um novo");
             try {
                 writer = new FileWriter(csvFile);
-                writer.append("Nome,Tipo,Imagem,Data de Lançamento,Duração em Minutos,Diretor,Classificação,Quantidade de Avaliações,sinopse,Gêneros\n");
+                writer.append("Nome,Tipo,Imagem,Data de Lançamento,Duração em Minutos,Diretor,Soma das Avaliações,Quantidade de Avaliações,sinopse,Gêneros,Numero temporada,Numero Epsodio,Serie pertencente\n");
                 System.out.println("Arquivo CSV criado com sucesso!");
 
             } catch (IOException e) {
@@ -61,67 +61,83 @@ public class BancoDeDados {
 
         try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
             boolean primeiraLinha = true;
-            // pula o cabeçalho
+
             while ((linha = br.readLine()) != null) {
+                // pula o cabeçalho
                 if (primeiraLinha) {
                     primeiraLinha = false;
                     continue;
                 }
                 String[] dados = linha.split(",");
-                //Nome,Tipo,Imagem,Data de Lançamento,Duração em Minutos,Diretor,Classificação,Quantidade de Avaliações,sinopse,Gêneros
-                //String tipo, String nome, String imagem, int ano, String sinopse, int duracao
-                String nome = dados[0];
-                String tipo = dados[1];
-                String imagem = dados[2];
-                int dataDeLançamento = Integer.parseInt(dados[3]);
-                int duracao = Integer.parseInt(dados[4]);
-                String diretor = dados[5];
-                int Classificacao = Integer.parseInt(dados[6]);
-                int quantidadeAvaliacoes = Integer.parseInt(dados[7]);
-                String sinopse = dados[8];
-                String[] partes = dados[9].split(".");
-                Set<String> generos = new HashSet<>();
+                if(dados.length == 13){
+                    if(!dados[1].equals("Episodio")&& BuscarTitulo(dados[0])==-1) {
+                        String nome = dados[0];
+                        String imagem = dados[2];
+                        int dataDeLancamento = Integer.parseInt(dados[3]);
+                        int duracao = Integer.parseInt(dados[4]);
+                        String diretor = dados[5];
+                        int somaAvaliacoes = Integer.parseInt(dados[6]);
+                        int quantidadeAvaliacoes = Integer.parseInt(dados[7]);
+                        String sinopse = dados[8];
+                        String[] partes = dados[9].split("&");
+                        Set<String> generos = new HashSet<>();
+                        for (String genero : partes) {
+                            generos.add(genero.trim());
+                        }
+                        switch(dados[1]){
+                            case "Serie":
+                                Titulos.add(new Serie(nome,imagem,generos, dataDeLancamento,sinopse,duracao,diretor));
+                                break;
+                            case "Filme":
+                                Titulos.add(new Filme(nome,imagem,generos, dataDeLancamento,sinopse,duracao,diretor,quantidadeAvaliacoes, somaAvaliacoes));
+                                break;
+                            case "Documentario":
+                                Titulos.add(new Documentario(nome,imagem, dataDeLancamento,sinopse,duracao,diretor,quantidadeAvaliacoes, somaAvaliacoes));
+                                break;
 
-                for (String genero : partes) {
-                    generos.add(genero.trim());
+                        }
+                    }else if(dados[1].equals("Episodio")&&BuscarTitulo(dados[12])!=-1){
+                        Titulos.get(BuscarTitulo(dados[12])).adicionarEpisodio(new EpisodioSerie(dados[0], dados[2], Integer.parseInt(dados[3]), dados[8], Integer.parseInt(dados[4]), dados[5], Integer.parseInt(dados[7]), Integer.parseInt(dados[6]), Integer.parseInt(dados[10]), Integer.parseInt(dados[11]), dados[12]));
+                    }
                 }
 
 
-                switch(dados[1]){
-                    case "Serie":
 
-                        break;
-                    case "Filme":
-                        Titulos.add(new Filme(nome,imagem,generos,dataDeLançamento,sinopse,duracao,quantidadeAvaliacoes,Classificacao));
-                        break;
-                    case "Episodio":
-
-                        break;
-                    case "Documentario":
-                        Titulos.add(new Documentario(nome,imagem,dataDeLançamento,sinopse,duracao,quantidadeAvaliacoes,Classificacao));
-
-                        break;
-
-                }
-                // Exibe os dados da linha(trocar por objeto)
+                // Exibe os dados da linha
                 for (String campo : dados) {
                     System.out.print(campo + " | ");
                 }
                 System.out.println();
 
             }
-
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+
     }
 
     public void AdicionarTitulo() {
-        FileWriter writer = null;
+
+    }
+    private int BuscarTitulo(String nome) {
+        for(int titulo = 0; titulo < Titulos.size(); titulo++) {
+            if(Titulos.get(titulo).getNome().equals(nome)) {
+                return titulo;
+            }
+
+        }
+        return -1;
+    }
+    private void ReescreverDados(){
         try {
-            writer = new FileWriter(csvFile, true);
-            //trocar por dados de um titulo novo na função dee adicionar titulo
+            writer = new FileWriter(csvFile);
+            writer.append("Nome,Tipo,Imagem,Data de Lançamento,Duração em Minutos,Diretor,Soma das Avaliações,Quantidade de Avaliações,sinopse,Gêneros,Numero temporada,Numero Epsodio,Serie pertencente\n");
+            for(ConteudoAudiovisual conteudo : Titulos) {
+                writer.append(conteudo.stringBancoDados());
+            }
             System.out.println("Arquivo CSV atualizado com sucesso!");
+
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -132,15 +148,5 @@ public class BancoDeDados {
             }
         }
     }
-//    public boolean IgualdadeTitulo(Object obj){
-//        if (this == obj){
-//            return true;
-//        }
-//        if (obj == null||this.getClass() != obj.getClass()){
-//            return false;
-//        }
-//        teste Ti = (teste) obj;
-//        return (CodigoIso.equals(pais.CodigoIso)&&CodigoIso.equals(pais.CodigoIso));
-//    }
 }
 
