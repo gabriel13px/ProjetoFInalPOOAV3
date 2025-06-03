@@ -10,6 +10,18 @@ public class EpisodioSerie extends ConteudoAudiovisual {
         this.nomeSeriePertencente = serie;
     }
 
+    public int getNumeroEpisodio() {
+        return numeroEpisodio;
+    }
+
+    public String getNomeSeriePertencente() {
+        return nomeSeriePertencente;
+    }
+
+    public int getNumeroTemporada() {
+        return numeroTemporada;
+    }
+
     public String getSeriePertencente() {
         return nomeSeriePertencente;
     }

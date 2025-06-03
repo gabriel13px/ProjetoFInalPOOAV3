@@ -5,6 +5,7 @@ import java.util.List;
 public class Serie extends ConteudoAudiovisual {
     private Set<String> generos;
     private List<EpisodioSerie> episodios = new ArrayList<>();
+    private int numeroDeEpisodios;
 
     public Serie(String nome, String imagem, Set<String> generos,
                  int ano, String sinopse, int duracaoEmMinutos, String diretor) {
@@ -15,6 +16,18 @@ public class Serie extends ConteudoAudiovisual {
     public void adicionarEpisodio(EpisodioSerie episodio) {
         super.adicionarEpisodio(episodio);
         episodios.add(episodio);
+        numeroDeEpisodios=episodios.size();
+    }
+
+    public int getNumeroDeEpisodios() {
+        return numeroDeEpisodios;
+    }
+    public Set<String> getGeneros() {
+        return generos;
+    }
+
+    public List<EpisodioSerie> getEpisodios() {
+        return episodios;
     }
 
     @Override

@@ -7,8 +7,12 @@ public class Filme extends ConteudoAudiovisual {
                  int ano, String sinopse, int duracaoemMinutos,String diretor, int totalDeAvaliacoes, int somaAvaliacoes) {
         super("Filme", nome, imagem, ano, sinopse, duracaoemMinutos,diretor);
         this.generos = generos;
-        this.totalDeAvaliacoes = totalDeAvaliacoes;
-        this.somaAvaliacoes = somaAvaliacoes;
+        super.setTotalDeAvaliacoes(totalDeAvaliacoes);
+        super.setSomaAvaliacoes(somaAvaliacoes);
+    }
+
+    public Set<String> getGeneros() {
+        return generos;
     }
 
     @Override

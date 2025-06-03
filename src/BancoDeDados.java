@@ -19,7 +19,7 @@ public class BancoDeDados {
     private File arquivo;
     private FileWriter writer = null;
     private String linha;
-    public ArrayList<ConteudoAudiovisual> Titulos;
+    protected ArrayList<ConteudoAudiovisual> Titulos;
     public BancoDeDados(String csvFile){
     this.csvFile = csvFile;
     this.arquivo = new File(this.csvFile);

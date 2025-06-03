@@ -1,13 +1,13 @@
 public abstract class ConteudoAudiovisual implements Midia {
-    protected String tipo;
-    protected String nome;
-    protected String imagem;
-    protected int anoDeLancamento;
-    protected String diretor;
-    protected String sinopse;
-    protected int duracaoEmMinutos;
-    protected int somaAvaliacoes;
-    protected int totalDeAvaliacoes;
+    private String tipo;
+    private String nome;
+    private String imagem;
+    private int anoDeLancamento;
+    private String diretor;
+    private String sinopse;
+    private int duracaoEmMinutos;
+    private int somaAvaliacoes;
+    private int totalDeAvaliacoes;
 
     public ConteudoAudiovisual(String tipo, String nome, String imagem, int anoDeLancamento, String sinopse, int duracaoEmMinutos,String diretor) {
         this.tipo = tipo;
@@ -20,12 +20,7 @@ public abstract class ConteudoAudiovisual implements Midia {
         this.somaAvaliacoes = 0;
         this.totalDeAvaliacoes = 0;
     }
-    public String getNome() {
-        return nome;
-    }
-    public String getImagem() {
-        return imagem;}
-    public String getSinopse() {return sinopse;}
+
     @Override
     public void avaliar(int nota) {
         somaAvaliacoes += nota;
@@ -56,5 +51,75 @@ public abstract class ConteudoAudiovisual implements Midia {
         return new String(nome+","+tipo+","+imagem+","+anoDeLancamento+","+duracaoEmMinutos+","+diretor+","+somaAvaliacoes+","+totalDeAvaliacoes+","+sinopse);
     }
 
+    public String getTipo() {
+        return tipo;
+    }
 
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(String imagem) {
+        this.imagem = imagem;
+    }
+
+    public int getAnoDeLancamento() {
+        return anoDeLancamento;
+    }
+
+    public void setAnoDeLancamento(int anoDeLancamento) {
+        this.anoDeLancamento = anoDeLancamento;
+    }
+
+    public String getDiretor() {
+        return diretor;
+    }
+
+    public void setDiretor(String diretor) {
+        this.diretor = diretor;
+    }
+
+    public String getSinopse() {
+        return sinopse;
+    }
+
+    public void setSinopse(String sinopse) {
+        this.sinopse = sinopse;
+    }
+
+    public int getDuracaoEmMinutos() {
+        return duracaoEmMinutos;
+    }
+
+    public void setDuracaoEmMinutos(int duracaoEmMinutos) {
+        this.duracaoEmMinutos = duracaoEmMinutos;
+    }
+
+    public int getSomaAvaliacoes() {
+        return somaAvaliacoes;
+    }
+
+    public void setSomaAvaliacoes(int somaAvaliacoes) {
+        this.somaAvaliacoes = somaAvaliacoes;
+    }
+
+    public int getTotalDeAvaliacoes() {
+        return totalDeAvaliacoes;
+    }
+
+    public void setTotalDeAvaliacoes(int totalDeAvaliacoes) {
+        this.totalDeAvaliacoes = totalDeAvaliacoes;
+    }
 }
