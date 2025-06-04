@@ -22,7 +22,7 @@ public abstract class ConteudoAudiovisual implements Midia {
     }
 
     @Override
-    public void avaliar(int nota) {
+    public void avaliar(double nota) {
         somaAvaliacoes += nota;
         totalDeAvaliacoes++;
     }

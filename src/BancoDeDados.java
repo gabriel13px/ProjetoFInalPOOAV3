@@ -26,7 +26,7 @@ public class BancoDeDados {
     aberturaBancoDeDados();
 }
 
-    public ArrayList getTitulos() {
+    public ArrayList<ConteudoAudiovisual> getTitulos() {
         return Titulos;
     }
 
@@ -117,9 +117,33 @@ public class BancoDeDados {
 
     }
 
-    public void AdicionarTitulo() {
-
+    public void AtualizarTitulo(ConteudoAudiovisual Titulo)  {
+        if(BuscarTitulo(Titulo.getNome()) != -1){
+            Titulos.set(BuscarTitulo(Titulo.getNome()), Titulo);
+        }
+    ReescreverDados();
     }
+    public void AtualizarBanco(ArrayList<ConteudoAudiovisual> titulos)  {
+        try {
+            writer = new FileWriter(csvFile);
+            writer.append("Nome,Tipo,Imagem,Data de Lançamento,Duração em Minutos,Diretor,Soma das Avaliações,Quantidade de Avaliações,sinopse,Gêneros,Numero temporada,Numero Epsodio,Serie pertencente\n");
+            for(ConteudoAudiovisual conteudo : titulos) {
+                writer.append(conteudo.stringBancoDados());
+            }
+            System.out.println("Arquivo CSV atualizado com sucesso!");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (writer != null) writer.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+
     private int BuscarTitulo(String nome) {
         for(int titulo = 0; titulo < Titulos.size(); titulo++) {
             if(Titulos.get(titulo).getNome().equals(nome)) {
@@ -148,5 +172,6 @@ public class BancoDeDados {
             }
         }
     }
+
 }
 
