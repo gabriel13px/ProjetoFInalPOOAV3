@@ -47,7 +47,6 @@ public class FormularioAdicionarTitulo {
         camposBase.add(new JLabel("Nota Inicial (0-10):"));
         camposBase.add(notaField);
 
-        // Campos para Episódio de Série
         JTextField numTemporadaField = new JTextField();
         JTextField numEpisodioField = new JTextField();
         JComboBox<String> seriesCombo = new JComboBox<>();
@@ -58,22 +57,20 @@ public class FormularioAdicionarTitulo {
         camposDinamicos.add(new JLabel("Série Pertencente:"));
         camposDinamicos.add(seriesCombo);
 
-        // Lógica de ativação de campos dinâmicos
         tipoCombo.addActionListener(e -> {
             String tipoSelecionado = (String) tipoCombo.getSelectedItem();
-            boolean isEpSerie = tipoSelecionado.equals("Episódio de Série");
+            boolean VerificacaoEp = tipoSelecionado.equals("Episódio de Série");
             boolean usaGenero = tipoSelecionado.equals("Filme") || tipoSelecionado.equals("Série");
 
-            camposDinamicos.setVisible(isEpSerie);
+            camposDinamicos.setVisible(VerificacaoEp);
             generoField.setVisible(usaGenero);
             generoLabel.setVisible(usaGenero);
 
-            // Popular combo com séries disponíveis
-            if (isEpSerie) {
+            if (VerificacaoEp) {
                 seriesCombo.removeAllItems();
-                for (ConteudoAudiovisual t : titulos) {
-                    if (t instanceof Serie) {
-                        seriesCombo.addItem(t.getNome());
+                for (ConteudoAudiovisual titulo : titulos) {
+                    if (titulo instanceof Serie) {
+                        seriesCombo.addItem(titulo.getNome());
                     }
                 }
             }
@@ -81,7 +78,6 @@ public class FormularioAdicionarTitulo {
             formulario.revalidate();
         });
 
-        // Botões
         JPanel botoes = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         JButton salvar = new JButton("Salvar");
         JButton cancelar = new JButton("Cancelar");
@@ -144,7 +140,6 @@ public class FormularioAdicionarTitulo {
         botoes.add(salvar);
         botoes.add(cancelar);
 
-        // Montagem da tela
         JPanel centro = new JPanel(new BorderLayout());
         centro.add(camposBase, BorderLayout.NORTH);
         centro.add(camposDinamicos, BorderLayout.CENTER);

@@ -1,22 +1,19 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class PainelDetalhesConteudo  {
+public class PainelDetalhesConteudo extends Style {
 
     public static void exibir(JPanel painelPrincipal, JPanel painelCards, ConteudoAudiovisual titulo) {
         painelPrincipal.removeAll();
-        String fonte = "SansSerif";
 
         JPanel container = new JPanel(new BorderLayout());
         container.setBackground(new Color(30, 30, 30));
         container.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
-        //imagem
         JPanel imagemPanel = new JPanel();
         imagemPanel.setLayout(new BoxLayout(imagemPanel, BoxLayout.Y_AXIS));
         imagemPanel.setBackground(new Color(30, 30, 30));
         imagemPanel.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 20));
-
         ImageIcon imagemOriginal = new ImageIcon(titulo.getImagem());
         Image imagemRedimensionada = imagemOriginal.getImage().getScaledInstance(300, 450, Image.SCALE_SMOOTH);
         JLabel imagemLabel = new JLabel(new ImageIcon(imagemRedimensionada));
@@ -28,54 +25,54 @@ public class PainelDetalhesConteudo  {
         infoPanel.setBackground(new Color(30, 30, 30));
 
         JLabel nome = new JLabel(titulo.getNome());
-        nome.setFont(new Font(fonte, Font.BOLD, 26));
+        nome.setFont(new Font(fonteLetras, Font.BOLD, 26));
         nome.setForeground(Color.WHITE);
         nome.setAlignmentX(Component.CENTER_ALIGNMENT);
         infoPanel.add(nome);
 
-        JLabel avaliacao = new JLabel("⭐ Avaliação: " + titulo.getMediaAvaliacoes() + "/10");
-        avaliacao.setFont(new Font(fonte, Font.PLAIN, 18));
-        avaliacao.setForeground(Color.LIGHT_GRAY);
+        JLabel avaliacao = new JLabel("⭐ Avaliação: " + String.format("%.1f", titulo.getMediaAvaliacoes()) + "/10");
+        avaliacao.setFont(new Font(fonteLetras, Font.PLAIN, 18));
+        avaliacao.setForeground(corLetras);
         avaliacao.setAlignmentX(Component.CENTER_ALIGNMENT);
-        infoPanel.add(avaliacao);
+        if (!titulo.getTipo().equalsIgnoreCase("Serie")) {
+            avaliacao.setVisible(true);
+        }else{
+            avaliacao.setVisible(false);
+        }
 
-        // Botão de avaliação (Filme ou Documentário)
         if (titulo.getTipo().equalsIgnoreCase("Filme") || titulo.getTipo().equalsIgnoreCase("Documentario")) {
             infoPanel.add(Box.createVerticalStrut(30));
             JButton avaliar = new JButton("Adicionar Avaliação");
             botaoAvaliarTitulo(avaliar, titulo, avaliacao, painelPrincipal);
             avaliar.setAlignmentX(Component.CENTER_ALIGNMENT);
-            avaliar.setBackground(new Color(255, 215, 0)); // dourado
+            avaliar.setBackground(botao2);
             avaliar.setForeground(Color.BLACK);
             avaliar.setFocusPainted(false);
-            avaliar.setFont(new Font(fonte, Font.BOLD, 14));
-            avaliar.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20)); // padding
+            avaliar.setFont(new Font(fonteLetras, Font.BOLD, 14));
+            avaliar.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
             infoPanel.add(avaliar);
         }
 
         imagemPanel.add(infoPanel);
-
-        // === Painel de Detalhes e Abas ===
         JPanel detalhesPanel = new JPanel();
         detalhesPanel.setLayout(new BoxLayout(detalhesPanel, BoxLayout.Y_AXIS));
         detalhesPanel.setBackground(new Color(30, 30, 30));
-        detalhesPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20)); // padding
+        detalhesPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
-// Label: Ano e Diretor
         JLabel anoDiretor = new JLabel(titulo.getAnoDeLancamento() + " | Dirigido por: " + titulo.getDiretor());
-        anoDiretor.setFont(new Font(fonte, Font.PLAIN, 14));
+        anoDiretor.setFont(new Font(fonteLetras, Font.PLAIN, 14));
         anoDiretor.setForeground(Color.LIGHT_GRAY);
 
 // Label: Descrição/Sinopse
         JLabel descricao = new JLabel("<html><div style='width: 500px;'>" + titulo.getSinopse() + "</div></html>");
-        descricao.setFont(new Font(fonte, Font.PLAIN, 14));
+        descricao.setFont(new Font(fonteLetras, Font.PLAIN, 14));
         descricao.setForeground(Color.WHITE);
 
 // Abas
         JTabbedPane abas = new JTabbedPane();
         abas.setBackground(new Color(45, 45, 45));
         abas.setForeground(Color.WHITE);
-        abas.setFont(new Font(fonte, Font.BOLD, 14));
+        abas.setFont(new Font(fonteLetras, Font.BOLD, 14));
 
 // Aba: Informações Gerais
         JPanel abaInfoGeral = new JPanel();
@@ -88,12 +85,11 @@ public class PainelDetalhesConteudo  {
         abaInfoGeral.add(Box.createVerticalStrut(10));
         JLabel duracaoLabel = new JLabel("⏱ Duração: " + titulo.getDuracaoEmMinutos() + " min");
         duracaoLabel.setForeground(Color.WHITE);
-        duracaoLabel.setFont(new Font(fonte, Font.PLAIN, 14));
+        duracaoLabel.setFont(new Font(fonteLetras, Font.PLAIN, 14));
         abaInfoGeral.add(duracaoLabel);
         abas.addTab("Informações Gerais", abaInfoGeral);
 
-// Aba: Gêneros
-        // Aba: Gêneros (apenas para Filme e Série)
+
         if (titulo instanceof Filme filme) {
             JPanel abaGeneros = new JPanel();
             abaGeneros.setLayout(new BoxLayout(abaGeneros, BoxLayout.Y_AXIS));
@@ -101,7 +97,7 @@ public class PainelDetalhesConteudo  {
 
             JLabel generoLabel = new JLabel("🎞 Gêneros: " + String.join(", ", filme.getGeneros()));
             generoLabel.setForeground(Color.WHITE);
-            generoLabel.setFont(new Font(fonte, Font.PLAIN, 14));
+            generoLabel.setFont(new Font(fonteLetras, Font.PLAIN, 14));
 
             abaGeneros.add(Box.createVerticalStrut(10));
             abaGeneros.add(generoLabel);
@@ -114,14 +110,13 @@ public class PainelDetalhesConteudo  {
 
             JLabel generoLabel = new JLabel("🎞 Gêneros: " + String.join(", ", serie.getGeneros()));
             generoLabel.setForeground(Color.WHITE);
-            generoLabel.setFont(new Font(fonte, Font.PLAIN, 14));
+            generoLabel.setFont(new Font(fonteLetras, Font.PLAIN, 14));
 
             abaGeneros.add(Box.createVerticalStrut(10));
             abaGeneros.add(generoLabel);
             abas.addTab("Gêneros", abaGeneros);
         }
 
-// Aba: Episódios
         if (titulo.getTipo().equalsIgnoreCase("Serie") && titulo instanceof Serie serie) {
             JPanel abaEpisodios = new JPanel();
             abaEpisodios.setLayout(new BoxLayout(abaEpisodios, BoxLayout.Y_AXIS));
@@ -130,47 +125,48 @@ public class PainelDetalhesConteudo  {
 
             JLabel infoEps = new JLabel("📺 " + serie.getNumeroDeEpisodios() + " episódios:");
             infoEps.setForeground(Color.WHITE);
-            infoEps.setFont(new Font(fonte, Font.BOLD, 14));
+            infoEps.setFont(new Font(fonteLetras, Font.BOLD, 14));
             abaEpisodios.add(infoEps);
             abaEpisodios.add(Box.createVerticalStrut(10));
 
-            for (EpisodioSerie ep : serie.getEpisodios()) {
+            for (EpisodioSerie episodio : serie.getEpisodios()) {
                 JPanel epPanel = new JPanel(new BorderLayout());
                 epPanel.setBackground(new Color(60, 60, 60));
                 epPanel.setBorder(BorderFactory.createEmptyBorder(8, 10, 8, 10));
+                epPanel.setMaximumSize(new Dimension(Integer.MAX_VALUE, 40));
 
-                JLabel tituloEp = new JLabel("S" + ep.getNumeroTemporada() + "E" + ep.getNumeroEpisodio() + " - " + ep.getNome());
-                tituloEp.setForeground(Color.WHITE);
-                tituloEp.setFont(new Font(fonte, Font.PLAIN, 13));
 
-                JButton avaliarEpBtn = new JButton("Avaliar");
-                avaliarEpBtn.setFocusPainted(false);
-                avaliarEpBtn.setBackground(new Color(100, 100, 255));
-                avaliarEpBtn.setForeground(Color.WHITE);
-                avaliarEpBtn.setFont(new Font(fonte, Font.PLAIN, 12));
-                botaoAvaliarEpisodio(avaliarEpBtn, ep);
+                JLabel tituloEpisodio = new JLabel("S" + episodio.getNumeroTemporada() + "E" + episodio.getNumeroEpisodio() + " - " + episodio.getNome());
+                tituloEpisodio.setForeground(corLetras);
+                tituloEpisodio.setFont(new Font(fonteLetras, Font.PLAIN, 13));
 
-                epPanel.add(tituloEp, BorderLayout.WEST);
-                epPanel.add(avaliarEpBtn, BorderLayout.EAST);
+                JButton avaliarEpBotao = new JButton("Avaliar");
+                avaliarEpBotao.setFocusPainted(false);
+                avaliarEpBotao.setBackground(corBotao3);
+                avaliarEpBotao.setForeground(corLetras);
+                avaliarEpBotao.setFont(new Font(fonteLetras, Font.PLAIN, 12));
+                botaoAvaliarEpisodio(avaliarEpBotao, episodio);
+
+                epPanel.add(tituloEpisodio, BorderLayout.WEST);
+                epPanel.add(avaliarEpBotao, BorderLayout.EAST);
                 abaEpisodios.add(epPanel);
                 abaEpisodios.add(Box.createVerticalStrut(5));
             }
 
-            JScrollPane scrollEps = new JScrollPane(abaEpisodios);
-            scrollEps.setPreferredSize(new Dimension(550, 200));
-            abas.addTab("Episódios", scrollEps);
+            JScrollPane scrollEpisodios = new JScrollPane(abaEpisodios);
+            scrollEpisodios.setPreferredSize(new Dimension(550, 200));
+            abas.addTab("Episódios", scrollEpisodios);
         }
 
-// Adiciona componentes principais
         detalhesPanel.add(nome);
         detalhesPanel.add(Box.createVerticalStrut(5));
         detalhesPanel.add(avaliacao);
         detalhesPanel.add(Box.createVerticalStrut(10));
         detalhesPanel.add(abas);
 
-// Botão Voltar
+
         JButton voltar = new JButton("⬅ Voltar");
-        voltar.setFont(new Font(fonte, Font.PLAIN, 14));
+        voltar.setFont(new Font(fonteLetras, Font.PLAIN, 14));
         voltar.setFocusPainted(false);
         voltar.setBackground(new Color(80, 80, 80));
         voltar.setForeground(Color.WHITE);
@@ -186,7 +182,6 @@ public class PainelDetalhesConteudo  {
         detalhesPanel.add(Box.createVerticalStrut(20));
         detalhesPanel.add(voltar);
 
-// Layout final
         container.add(imagemPanel, BorderLayout.WEST);
         container.add(detalhesPanel, BorderLayout.CENTER);
         painelPrincipal.add(container, BorderLayout.CENTER);
@@ -223,7 +218,9 @@ public class PainelDetalhesConteudo  {
                 try {
                     double nota = Double.parseDouble(input);
                     if (nota >= 0 && nota <= 10) {
-                        // episodio.adicionarAvaliacao(nota);
+                         episodio.avaliar(nota);
+                         //não funciona, vou fingir que sei de nada...
+                       // new BancoDeDados("dados.csv").AtualizarTitulo(episodio);
                         JOptionPane.showMessageDialog(null, "Nota registrada com sucesso!");
                     } else {
                         JOptionPane.showMessageDialog(null, "A nota deve ser entre 0 e 10.");
