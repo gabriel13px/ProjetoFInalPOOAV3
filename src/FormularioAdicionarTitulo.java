@@ -91,7 +91,23 @@ public class FormularioAdicionarTitulo {
                 int ano = Integer.parseInt(anoField.getText().trim());
                 int duracao = Integer.parseInt(duracaoField.getText().trim());
                 String diretor = diretorField.getText().trim();
-                int nota = (int) Double.parseDouble(notaField.getText().trim());
+
+                String notaTexto = notaField.getText().trim();
+                double notaDouble;
+
+                try{
+                    notaDouble = Double.parseDouble(notaTexto);
+                } catch (NumberFormatException exception){
+                    JOptionPane.showMessageDialog(formulario, "Digite um valor válido para a nota.");
+                    return;
+                }
+
+                if (notaDouble < 0 || notaDouble>10){
+                    JOptionPane.showMessageDialog(formulario, "A nota deve estar entre 0 e 10.");
+                    return;
+                }
+
+                int nota = (int) notaDouble;
 
                 Set<String> generos = new HashSet<>();
                 if (tipo.equals("Filme") || tipo.equals("Série")) {
