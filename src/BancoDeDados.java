@@ -63,7 +63,6 @@ public class BancoDeDados {
             boolean primeiraLinha = true;
 
             while ((linha = br.readLine()) != null) {
-                // pula o cabeçalho
                 if (primeiraLinha) {
                     primeiraLinha = false;
                     continue;
@@ -100,14 +99,6 @@ public class BancoDeDados {
                         Titulos.get(BuscarTitulo(dados[12])).adicionarEpisodio(new EpisodioSerie(dados[0], dados[2], Integer.parseInt(dados[3]), dados[8], Integer.parseInt(dados[4]), dados[5], Integer.parseInt(dados[7]), Integer.parseInt(dados[6]), Integer.parseInt(dados[10]), Integer.parseInt(dados[11]), dados[12]));
                     }
                 }
-
-
-
-                // Exibe os dados da linha
-                for (String campo : dados) {
-                    System.out.print(campo + " | ");
-                }
-                System.out.println();
 
             }
         } catch (IOException e) {

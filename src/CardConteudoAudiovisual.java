@@ -2,10 +2,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class CardConteudoAudiovisual {
+public class CardConteudoAudiovisual extends Style{
 
     private final ConteudoAudiovisual conteudo;
-    String fonte = "SansSerif";
 
 
 
@@ -16,7 +15,7 @@ public class CardConteudoAudiovisual {
     public JPanel construir() {
         JPanel card = new JPanel(new BorderLayout());
         card.setPreferredSize(new Dimension(200, 320));
-        card.setBackground(Color.DARK_GRAY);
+        card.setBackground(detalhesCor);
 
         ImageIcon imagem = new ImageIcon(conteudo.getImagem());
         Image imagemRedimensionada = imagem.getImage().getScaledInstance(200, 320, Image.SCALE_SMOOTH);
@@ -24,14 +23,14 @@ public class CardConteudoAudiovisual {
         imagemLabel.setHorizontalAlignment(JLabel.CENTER);
 
         JLabel nomeLabel = new JLabel(conteudo.getNome());
-        nomeLabel.setForeground(Color.WHITE);
+        nomeLabel.setForeground(corLetras);
         nomeLabel.setHorizontalAlignment(JLabel.CENTER);
-        nomeLabel.setFont(new Font(fonte, Font.BOLD, 14));
+        nomeLabel.setFont(new Font(fonteLetras, Font.BOLD, 14));
 
         JLabel infoLabel = new JLabel();
         infoLabel.setForeground(Color.LIGHT_GRAY);
         infoLabel.setHorizontalAlignment(JLabel.CENTER);
-        infoLabel.setFont(new Font(fonte, Font.PLAIN, 12));
+        infoLabel.setFont(new Font(fonteLetras, Font.PLAIN, 12));
 
         if (conteudo instanceof Filme filme) {
             infoLabel.setText("Gênero: " + String.join(", ", filme.getGeneros()));
