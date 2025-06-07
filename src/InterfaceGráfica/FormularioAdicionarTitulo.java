@@ -9,13 +9,16 @@ import java.util.ArrayList;
 import java.util.Set;
 import java.util.HashSet;
 
-public class FormularioAdicionarTitulo {
+public class FormularioAdicionarTitulo extends Style {
 
     public static void abrir(JFrame parent, ArrayList<ConteudoAudiovisual> titulos) {
         JFrame formulario = new JFrame("Adicionar Novo Título");
         formulario.setSize(500, 600);
         formulario.setLocationRelativeTo(parent);
         formulario.setLayout(new BorderLayout(10, 10));
+        JLabel legenda = new JLabel("<html><div style='width: 300px;'>" + "Ajude o Flixtty a ser cada vez mais completo,insira o seu titulo favorito que esta em falta no nosso catalogo :)" + "</div></html>");
+        legenda.setFont(new Font(fonteLetras, Font.BOLD, 12));
+        formulario.add(legenda, BorderLayout.NORTH);
 
         JPanel camposBase = new JPanel(new GridLayout(0, 2, 10, 10));
         JPanel camposDinamicos = new JPanel(new GridLayout(0, 2, 10, 10));

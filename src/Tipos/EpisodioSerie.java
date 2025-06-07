@@ -7,6 +7,8 @@ public class EpisodioSerie extends ConteudoAudiovisual {
 
     public EpisodioSerie(String nome, String imagem, int anoDeLancamento, String sinopse, int duracaoEmMinutos,String diretor,int totalDeAvaliacoes, int somaAvaliacoes, int numeroTemporada, int numeroEpisodio, String serie) {
         super("Episodio", nome, imagem, anoDeLancamento, sinopse, duracaoEmMinutos,diretor);
+        super.setTotalDeAvaliacoes(totalDeAvaliacoes);
+        super.setSomaAvaliacoes(somaAvaliacoes);
         this.numeroTemporada = numeroTemporada;
         this.numeroEpisodio = numeroEpisodio;
         this.nomeSeriePertencente = serie;

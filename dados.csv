@@ -1,8 +1,8 @@
 Nome,Tipo,Imagem,Data de Lançamento,Duração em Minutos,Diretor,Soma das Avaliações,Quantidade de Avaliações,sinopse,Gêneros,Numero temporada,Numero Epsodio,Tipos.Serie pertencente
-Interestelar,Tipos.Filme,imagens/interestelar.jpg,2014,169,Christopher Nolan,73,12,Uma missão para salvar a humanidade leva astronautas a um buraco negro,drama&aventura&ficção científica,-,-,-
+Interestelar,Tipos.Filme,imagens/interestelar.jpg,2014,169,Christopher Nolan,82,13,Uma missão para salvar a humanidade leva astronautas a um buraco negro,drama&aventura&ficção científica,-,-,-
 O Poderoso Chefão,Tipos.Filme,imagens/chefao.jpg,1972,175,Francis Ford Coppola,9,1,A saga da família mafiosa Corleone,drama&crime&clássico,-,-,-
-Matrix,Tipos.Filme,imagens/matrix.jpg,1999,136,Lana Wachowski,17,2,Um hacker descobre a verdade sobre a realidade,ficção científica&distopia&ação,-,-,-
-Toy Story,Tipos.Filme,imagens/toystory.jpg,1995,81,John Lasseter,9,1,Brinquedos ganham vida quando os humanos não estão por perto,família&animação&comédia,-,-,-
+Matrix,Tipos.Filme,imagens/matrix.jpg,1999,136,Lana Wachowski,21,6,Um hacker descobre a verdade sobre a realidade,ficção científica&distopia&ação,-,-,-
+Toy Story,Tipos.Filme,imagens/toystory.jpg,1995,81,John Lasseter,10,2,Brinquedos ganham vida quando os humanos não estão por perto,família&animação&comédia,-,-,-
 Titanic,Tipos.Filme,imagens/titanic.jpg,1997,195,James Cameron,9,1,Um romance trágico a bordo do navio Titanic,drama&romance&histórico,-,-,-
 Stranger Things,Tipos.Serie,imagens/strangerthings.jpg,2016,50,Duffer Brothers,0,0,Garotos enfrentam eventos sobrenaturais em sua cidade,terror&ficção científica&mistério,-,-,-
 A Desaparição,Episodio,imagens/st1e1.jpg,2016,50,Duffer Brothers,0,0,Will desaparece misteriosamente,-,1,1,Stranger Things
@@ -12,6 +12,7 @@ A Estranha no Lado Invertido,Episodio,imagens/strangerthings_s1e2.jpg,2016,55,Th
 Luzes de Natal,Episodio,imagens/strangerthings_s1e3.jpg,2016,50,The Duffer Brothers,0,0,A mãe de Will tenta se comunicar com ele através de luzes,-,1,3,Stranger Things
 O Corpo,Episodio,imagens/strangerthings_s1e4.jpg,2016,53,The Duffer Brothers,0,0,O corpo de Will é encontrado... ou será que não?,-,1,4,Stranger Things
 A Pulga e o Acrobata,Episodio,imagens/strangerthings_s1e5.jpg,2016,51,The Duffer Brothers,0,0,Os garotos descobrem o mundo invertido,-,1,5,Stranger Things
+A Desaparição,Episodio,imagens/st1e1.jpg,2016,50,Duffer Brothers,1,1,Will desaparece misteriosamente,-,1,1,Stranger Things
 The Office,Tipos.Serie,imagens/theoffice.jpg,2005,22,Greg Daniels,0,0,Uma sátira do dia a dia de um escritório,mockumentary&comédia,-,-,-
 Game of Thrones,Tipos.Serie,imagens/got.jpg,2011,57,David Benioff,0,0,Batalhas e intrigas por poder em Westeros,drama&fantasia&ação,-,-,-
 Winter is Coming,Episodio,imagens/got1e1.jpg,2011,61,Tim Van Patten,0,0,Os Starks descobrem a ameaça dos Caminhantes Brancos,-,1,1,Game of Thrones
@@ -23,11 +24,13 @@ Passado e Presente,Episodio,imagens/dark_s1e3.jpg,2017,57,Baran bo Odar,0,0,Desc
 Verdades,Episodio,imagens/dark_s1e5.jpg,2017,59,Baran bo Odar,0,0,Personagens encaram revelações perturbadoras,-,1,5,Dark
 Brooklyn Nine-Nine,Tipos.Serie,imagens/b99.jpg,2013,21,Michael Schur,0,0,Delegacia do Brooklyn enfrenta crimes com humor,policial&comédia,-,-,-
 Breaking Bad,Tipos.Serie,imagens/breakingbad.jpg,2008,47,Vince Gilligan,0,0,Professor de química vira fabricante de metanfetamina,drama&crime&thriller,-,-,-
-Piloto,Episodio,imagens/breakingbad_s1e1.jpg,2008,58,Vince Gilligan,0,0,Walter White inicia seu envolvimento no tráfico de drogas,-,1,1,Breaking Bad
+Piloto,Episodio,imagens/breakingbad_s1e1.jpg,2008,58,Vince Gilligan,6,2,Walter White inicia seu envolvimento no tráfico de drogas,-,1,1,Breaking Bad
 Sherlock,Tipos.Serie,imagens/sherlock.jpg,2010,90,Mark Gatiss,0,0,O detetive Sherlock Holmes resolve casos modernos em Londres,drama&mistério&crime,-,-,-
 Um Estudo em Rosa,Episodio,imagens/sherlock_s1e1.jpg,2010,90,Paul McGuigan,0,0,Holmes e Watson resolvem seu primeiro caso juntos,-,1,1,Sherlock
 Arcane,Tipos.Serie,imagens/arcane.jpg,2021,45,Pascal Charrue,0,0,Duas irmãs lutam em lados opostos de uma guerra em Piltover,drama&animação&ação,-,-,-
 Bem-vindo a Piltover,Episodio,imagens/arcane_s1e1.jpg,2021,44,Pascal Charrue,0,0,Duas irmãs invadem um laboratório e causam uma explosão,-,1,1,Arcane
+Bem-vindo a Piltover,Episodio,imagens/arcane_s1e1.jpg,2021,44,Pascal Charrue,1,1,Duas irmãs invadem um laboratório e causam uma explosão,-,1,1,Arcane
+Bem-vindo a Piltover,Episodio,imagens/arcane_s1e1.jpg,2021,44,Pascal Charrue,6,2,Duas irmãs invadem um laboratório e causam uma explosão,-,1,1,Arcane
 The Crown,Tipos.Serie,imagens/thecrown.jpg,2016,58,Peter Morgan,0,0,A trajetória da Rainha Elizabeth II ao longo das décadas,drama&biografia&histórico,-,-,-
 Uma Nova Rainha,Episodio,imagens/thecrown_s1e1.jpg,2016,58,Stephen Daldry,0,0,Morte do rei muda o destino de Elizabeth,-,1,1,The Crown
 BoJack Horseman,Tipos.Serie,imagens/bojack.jpg,2014,25,Raphael Bob-Waksberg,0,0,Um ator decadente tenta reencontrar o sentido da vida,drama&animação&comédia,-,-,-
@@ -37,11 +40,11 @@ Homem-Aranha: Sem Volta para Casa,Tipos.Filme,imagens/spiderman_nwh.jpg,2021,148
 Elementos,Tipos.Filme,imagens/elementos.jpg,2023,101,Peter Sohn,9,1,Elementos da natureza convivem em uma cidade diversa,fantasia&família&animação,-,-,-
 O Castelo Animado,Tipos.Filme,imagens/castelo_animado.jpg,2004,119,Hayao Miyazaki,9,1,Jovem amaldiçoada conhece um mago em um castelo mágico,aventura&fantasia&animação,-,-,-
 The Mandalorian,Tipos.Serie,imagens/mandalorian.jpg,2019,40,Jon Favreau,0,0,Caçador de recompensas vaga pela galáxia após queda do Império,aventura&ficção científica&ação,-,-,-
-Capítulo 1: O Mandaloriano,Episodio,imagens/mandalorian_s1e1.jpg,2019,39,Jon Favreau,0,0,Caçador de recompensas aceita uma missão misteriosa,-,1,1,The Mandalorian
+Capítulo 1: O Mandaloriano,Episodio,imagens/mandalorian_s1e1.jpg,2019,39,Jon Favreau,1,1,Caçador de recompensas aceita uma missão misteriosa,-,1,1,The Mandalorian
 Capítulo 2: A Criança,Episodio,imagens/mandalorian_s1e2.jpg,2019,31,Rick Famuyiwa,0,0,O Mandaloriano protege uma criança poderosa,-,1,2,The Mandalorian
 Capítulo 3: O Pecado,Episodio,imagens/mandalorian_s1e3.jpg,2019,37,Deborah Chow,0,0,O herói enfrenta o próprio clã por fazer o certo,-,1,3,The Mandalorian
 Capítulo 4: O Refúgio,Episodio,imagens/mandalorian_s1e4.jpg,2019,41,Bryce Dallas Howard,0,0,Refúgio em um planeta isolado vira campo de batalha,-,1,4,The Mandalorian
-Capítulo 5: O Pistoleiro,Episodio,imagens/mandalorian_s1e5.jpg,2019,35,Dave Filoni,0,0,O Mandaloriano cruza com um caçador inexperiente,-,1,5,The Mandalorian
+Capítulo 5: O Pistoleiro,Episodio,imagens/mandalorian_s1e5.jpg,2019,35,Dave Filoni,0,0,1 Mandaloriano cruza com um caçador inexperiente,-,1,5,The Mandalorian
 Narcos,Tipos.Serie,imagens/narcos.jpg,2015,49,José Padilha,0,0,A ascensão de Pablo Escobar e do cartel de Medellín,drama&biografia&crime,-,-,-
 Descenso,Episodio,imagens/narcos_s1e1.jpg,2015,57,José Padilha,0,0,Escobar começa a construir seu império com cocaína,-,1,1,Narcos
 O Ladrão Honesto,Episodio,imagens/narcos_s1e2.jpg,2015,49,José Padilha,0,0,Ascensão do cartel de Medellín,-,1,2,Narcos

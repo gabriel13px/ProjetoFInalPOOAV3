@@ -117,6 +117,14 @@ public class BancoDeDados {
         }
     ReescreverDados();
     }
+    public void AtualizarEpisodio(EpisodioSerie Titulo)  {
+        if(BuscarTitulo(Titulo.getNomeSeriePertencente()) != -1){
+            Serie serie = (Serie) Titulos.get(BuscarTitulo(Titulo.getSeriePertencente()));
+            serie.atualizarEpisodio(Titulo);
+            Titulos.set(BuscarTitulo(Titulo.getSeriePertencente()), serie);
+        }
+        ReescreverDados();
+    }
     public void AtualizarBanco(ArrayList<ConteudoAudiovisual> titulos)  {
         try {
             writer = new FileWriter(csvFile);

@@ -80,6 +80,7 @@ public class PaginaPrincipal extends Style {
         painelBuscaHeader.add(campoBusca);
         painelBuscaHeader.add(botaoBusca);
         painelBuscaHeader.add(filtroTipo);
+
         header.add(painelBuscaHeader, BorderLayout.CENTER);
 
         JButton botaoAdicionar = new JButton("➕ Adicionar Título");
@@ -108,7 +109,7 @@ public class PaginaPrincipal extends Style {
 
         JPanel painelCards = new JPanel();
         painelCards.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));
-        painelCards.setPreferredSize(new Dimension(780, 1000));
+        painelCards.setPreferredSize(new Dimension(780, 2000));
         painelCards.setBackground(principalCor);
 
         JScrollPane scrollPane = new JScrollPane(painelCards);

@@ -20,6 +20,20 @@ public class Serie extends ConteudoAudiovisual {
         episodios.add(episodio);
         numeroDeEpisodios=episodios.size();
     }
+    public void atualizarEpisodio(EpisodioSerie Titulo)  {
+        if(buscarEpisodio(Titulo.getNome()) != -1){
+            episodios.set(buscarEpisodio(Titulo.getNome()), Titulo);
+        }
+    }
+    private int buscarEpisodio(String nome) {
+        for(int titulo = 0; titulo < episodios.size(); titulo++) {
+            if(episodios.get(titulo).getNome().equals(nome)) {
+                return titulo;
+            }
+
+        }
+        return -1;
+    }
 
     public int getNumeroDeEpisodios() {
         return numeroDeEpisodios;
