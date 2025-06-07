@@ -1,3 +1,5 @@
+package InterfaceGráfica;
+
 import java.awt.*;
 
 abstract class Style {

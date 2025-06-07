@@ -1,8 +1,15 @@
+package InterfaceGráfica;
+
+import Tipos.ConteudoAudiovisual;
+import Tipos.Documentario;
+import Tipos.Filme;
+import Tipos.Serie;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class CardConteudoAudiovisual extends Style{
+public class CardConteudoAudiovisual extends Style {
 
     private final ConteudoAudiovisual conteudo;
 
@@ -15,7 +22,7 @@ public class CardConteudoAudiovisual extends Style{
     public JPanel construir() {
         JPanel card = new JPanel(new BorderLayout());
         card.setPreferredSize(new Dimension(200, 320));
-        card.setBackground(detalhesCor);
+        card.setBackground(Style.detalhesCor);
 
         ImageIcon imagem = new ImageIcon(conteudo.getImagem());
         Image imagemRedimensionada = imagem.getImage().getScaledInstance(200, 320, Image.SCALE_SMOOTH);
@@ -23,14 +30,14 @@ public class CardConteudoAudiovisual extends Style{
         imagemLabel.setHorizontalAlignment(JLabel.CENTER);
 
         JLabel nomeLabel = new JLabel(conteudo.getNome());
-        nomeLabel.setForeground(corLetras);
+        nomeLabel.setForeground(Style.corLetras);
         nomeLabel.setHorizontalAlignment(JLabel.CENTER);
-        nomeLabel.setFont(new Font(fonteLetras, Font.BOLD, 14));
+        nomeLabel.setFont(new Font(Style.fonteLetras, Font.BOLD, 14));
 
         JLabel infoLabel = new JLabel();
         infoLabel.setForeground(Color.LIGHT_GRAY);
         infoLabel.setHorizontalAlignment(JLabel.CENTER);
-        infoLabel.setFont(new Font(fonteLetras, Font.PLAIN, 12));
+        infoLabel.setFont(new Font(Style.fonteLetras, Font.PLAIN, 12));
 
         if (conteudo instanceof Filme filme) {
             infoLabel.setText("Gênero: " + String.join(", ", filme.getGeneros()));

@@ -1,3 +1,11 @@
+package InterfaceGráfica;
+
+import CSV.BancoDeDados;
+import Tipos.ConteudoAudiovisual;
+import Tipos.EpisodioSerie;
+import Tipos.Filme;
+import Tipos.Serie;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -34,13 +42,13 @@ public class PainelDetalhesConteudo extends Style {
         avaliacao.setFont(new Font(fonteLetras, Font.PLAIN, 18));
         avaliacao.setForeground(corLetras);
         avaliacao.setAlignmentX(Component.CENTER_ALIGNMENT);
-        if (!titulo.getTipo().equalsIgnoreCase("Serie")) {
+        if (!titulo.getTipo().equalsIgnoreCase("Tipos.Serie")) {
             avaliacao.setVisible(true);
         }else{
             avaliacao.setVisible(false);
         }
 
-        if (titulo.getTipo().equalsIgnoreCase("Filme") || titulo.getTipo().equalsIgnoreCase("Documentario")) {
+        if (titulo.getTipo().equalsIgnoreCase("Tipos.Filme") || titulo.getTipo().equalsIgnoreCase("Tipos.Documentario")) {
             infoPanel.add(Box.createVerticalStrut(30));
             JButton avaliar = new JButton("Adicionar Avaliação");
             botaoAvaliarTitulo(avaliar, titulo, avaliacao, painelPrincipal);
@@ -117,7 +125,7 @@ public class PainelDetalhesConteudo extends Style {
             abas.addTab("Gêneros", abaGeneros);
         }
 
-        if (titulo.getTipo().equalsIgnoreCase("Serie") && titulo instanceof Serie serie) {
+        if (titulo.getTipo().equalsIgnoreCase("Tipos.Serie") && titulo instanceof Serie serie) {
             JPanel abaEpisodios = new JPanel();
             abaEpisodios.setLayout(new BoxLayout(abaEpisodios, BoxLayout.Y_AXIS));
             abaEpisodios.setBackground(new Color(45, 45, 45));
@@ -220,7 +228,7 @@ public class PainelDetalhesConteudo extends Style {
                     if (nota >= 0 && nota <= 10) {
                          episodio.avaliar(nota);
                          //não funciona, vou fingir que sei de nada...
-                       // new BancoDeDados("dados.csv").AtualizarTitulo(episodio);
+                       // new CSV.BancoDeDados("dados.csv").AtualizarTitulo(episodio);
                         JOptionPane.showMessageDialog(null, "Nota registrada com sucesso!");
                     } else {
                         JOptionPane.showMessageDialog(null, "A nota deve ser entre 0 e 10.");

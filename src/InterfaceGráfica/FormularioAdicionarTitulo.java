@@ -1,3 +1,8 @@
+package InterfaceGráfica;
+
+import CSV.BancoDeDados;
+import Tipos.*;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
@@ -16,7 +21,7 @@ public class FormularioAdicionarTitulo {
         JPanel camposDinamicos = new JPanel(new GridLayout(0, 2, 10, 10));
         camposDinamicos.setVisible(false);
 
-        String[] tipos = {"Filme", "Série", "Documentário", "Episódio de Série"};
+        String[] tipos = {"Tipos.Filme", "Série", "Documentário", "Episódio de Série"};
         JComboBox<String> tipoCombo = new JComboBox<>(tipos);
         JTextField nomeField = new JTextField();
         JTextField imagemField = new JTextField();
@@ -60,7 +65,7 @@ public class FormularioAdicionarTitulo {
         tipoCombo.addActionListener(e -> {
             String tipoSelecionado = (String) tipoCombo.getSelectedItem();
             boolean VerificacaoEp = tipoSelecionado.equals("Episódio de Série");
-            boolean usaGenero = tipoSelecionado.equals("Filme") || tipoSelecionado.equals("Série");
+            boolean usaGenero = tipoSelecionado.equals("Tipos.Filme") || tipoSelecionado.equals("Série");
 
             camposDinamicos.setVisible(VerificacaoEp);
             generoField.setVisible(usaGenero);
@@ -110,7 +115,7 @@ public class FormularioAdicionarTitulo {
                 int nota = (int) notaDouble;
 
                 Set<String> generos = new HashSet<>();
-                if (tipo.equals("Filme") || tipo.equals("Série")) {
+                if (tipo.equals("Tipos.Filme") || tipo.equals("Série")) {
                     String[] partes = generoField.getText().split(",");
                     for (String g : partes) {
                         if (!g.trim().isEmpty()) {
@@ -122,7 +127,7 @@ public class FormularioAdicionarTitulo {
                 ConteudoAudiovisual novo = null;
 
                 switch (tipo) {
-                    case "Filme":
+                    case "Tipos.Filme":
                         novo = new Filme(nome, imagem, generos, ano, sinopse, duracao, diretor, 1, nota);
                         break;
                     case "Série":

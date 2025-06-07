@@ -1,3 +1,5 @@
+package CSV;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -6,6 +8,7 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
+import Tipos.*;
 
 //creio que a forma que vai ser usado é, ao abrir o app ele verifica se o banco de dados existe e coloca para dentro do app
 //vai ter uma opção de formulario para adicionar o filme, serie bla bla bla, é bom ver se vai permitir que o usuario escreva
@@ -40,7 +43,7 @@ public class BancoDeDados {
             System.out.println("O banco de dados NÃO existe. sera necessario criar um novo");
             try {
                 writer = new FileWriter(csvFile);
-                writer.append("Nome,Tipo,Imagem,Data de Lançamento,Duração em Minutos,Diretor,Soma das Avaliações,Quantidade de Avaliações,sinopse,Gêneros,Numero temporada,Numero Epsodio,Serie pertencente\n");
+                writer.append("Nome,Tipo,Imagem,Data de Lançamento,Duração em Minutos,Diretor,Soma das Avaliações,Quantidade de Avaliações,sinopse,Gêneros,Numero temporada,Numero Epsodio,Tipos.Serie pertencente\n");
                 System.out.println("Arquivo CSV criado com sucesso!");
 
             } catch (IOException e) {
@@ -84,13 +87,13 @@ public class BancoDeDados {
                             generos.add(genero.trim());
                         }
                         switch(dados[1]){
-                            case "Serie":
+                            case "Tipos.Serie":
                                 Titulos.add(new Serie(nome,imagem,generos, dataDeLancamento,sinopse,duracao,diretor));
                                 break;
-                            case "Filme":
+                            case "Tipos.Filme":
                                 Titulos.add(new Filme(nome,imagem,generos, dataDeLancamento,sinopse,duracao,diretor,quantidadeAvaliacoes, somaAvaliacoes));
                                 break;
-                            case "Documentario":
+                            case "Tipos.Documentario":
                                 Titulos.add(new Documentario(nome,imagem, dataDeLancamento,sinopse,duracao,diretor,quantidadeAvaliacoes, somaAvaliacoes));
                                 break;
 
@@ -117,7 +120,7 @@ public class BancoDeDados {
     public void AtualizarBanco(ArrayList<ConteudoAudiovisual> titulos)  {
         try {
             writer = new FileWriter(csvFile);
-            writer.append("Nome,Tipo,Imagem,Data de Lançamento,Duração em Minutos,Diretor,Soma das Avaliações,Quantidade de Avaliações,sinopse,Gêneros,Numero temporada,Numero Epsodio,Serie pertencente\n");
+            writer.append("Nome,Tipo,Imagem,Data de Lançamento,Duração em Minutos,Diretor,Soma das Avaliações,Quantidade de Avaliações,sinopse,Gêneros,Numero temporada,Numero Epsodio,Tipos.Serie pertencente\n");
             for(ConteudoAudiovisual conteudo : titulos) {
                 writer.append(conteudo.stringBancoDados());
             }
@@ -147,7 +150,7 @@ public class BancoDeDados {
     private void ReescreverDados(){
         try {
             writer = new FileWriter(csvFile);
-            writer.append("Nome,Tipo,Imagem,Data de Lançamento,Duração em Minutos,Diretor,Soma das Avaliações,Quantidade de Avaliações,sinopse,Gêneros,Numero temporada,Numero Epsodio,Serie pertencente\n");
+            writer.append("Nome,Tipo,Imagem,Data de Lançamento,Duração em Minutos,Diretor,Soma das Avaliações,Quantidade de Avaliações,sinopse,Gêneros,Numero temporada,Numero Epsodio,Tipos.Serie pertencente\n");
             for(ConteudoAudiovisual conteudo : Titulos) {
                 writer.append(conteudo.stringBancoDados());
             }

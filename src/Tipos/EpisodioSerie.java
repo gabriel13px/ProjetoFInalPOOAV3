@@ -1,3 +1,5 @@
+package Tipos;
+
 public class EpisodioSerie extends ConteudoAudiovisual {
     private int numeroTemporada;
     private int numeroEpisodio;

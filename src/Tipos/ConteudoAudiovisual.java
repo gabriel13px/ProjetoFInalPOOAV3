@@ -1,4 +1,6 @@
-public abstract class ConteudoAudiovisual implements Midia {
+package Tipos;
+
+public abstract class ConteudoAudiovisual implements Midia, Calculos {
     private String tipo;
     private String nome;
     private String imagem;

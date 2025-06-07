@@ -1,3 +1,11 @@
+package InterfaceGráfica;
+
+import CSV.BancoDeDados;
+import Tipos.ConteudoAudiovisual;
+import Tipos.Documentario;
+import Tipos.Filme;
+import Tipos.Serie;
+
 import javax.swing.*;
 import javax.swing.plaf.basic.BasicComboBoxUI;
 import java.awt.*;
@@ -51,7 +59,7 @@ public class PaginaPrincipal extends Style {
                 botaoBusca.setBackground(botãocor);
             }
         });
-        String[] opcoesTipo = {"Todos", "Filme", "Série", "Documentário"};
+        String[] opcoesTipo = {"Todos", "Tipos.Filme", "Série", "Documentário"};
         JComboBox<String> filtroTipo = new JComboBox<>(opcoesTipo);
         filtroTipo.setSelectedIndex(0);
         filtroTipo.setBackground(botãocor);
@@ -126,7 +134,7 @@ public class PaginaPrincipal extends Style {
         for (ConteudoAudiovisual titulo : arquivos.getTitulos()) {
             boolean nomeCorresponde = textoBusca.isEmpty() || titulo.getNome().toLowerCase().contains(textoBusca);
             boolean tipoCorresponde = tipoSelecionado.equals("Todos") ||
-                    (tipoSelecionado.equals("Filme") && titulo instanceof Filme) ||
+                    (tipoSelecionado.equals("Tipos.Filme") && titulo instanceof Filme) ||
                     (tipoSelecionado.equals("Série") && titulo instanceof Serie) ||
                     (tipoSelecionado.equals("Documentário") && titulo instanceof Documentario);
 

@@ -1,3 +1,5 @@
+package Tipos;
+
 import java.util.Set;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +11,7 @@ public class Serie extends ConteudoAudiovisual {
 
     public Serie(String nome, String imagem, Set<String> generos,
                  int ano, String sinopse, int duracaoEmMinutos, String diretor) {
-        super("Serie", nome, imagem, ano, sinopse, duracaoEmMinutos,diretor);
+        super("Tipos.Serie", nome, imagem, ano, sinopse, duracaoEmMinutos,diretor);
         this.generos = generos;
     }
     @Override

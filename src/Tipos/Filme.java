@@ -1,3 +1,5 @@
+package Tipos;
+
 import java.util.Set;
 
 public class Filme extends ConteudoAudiovisual {
@@ -5,7 +7,7 @@ public class Filme extends ConteudoAudiovisual {
 
     public Filme(String nome, String imagem, Set<String> generos,
                  int ano, String sinopse, int duracaoemMinutos,String diretor, int totalDeAvaliacoes, int somaAvaliacoes) {
-        super("Filme", nome, imagem, ano, sinopse, duracaoemMinutos,diretor);
+        super("Tipos.Filme", nome, imagem, ano, sinopse, duracaoemMinutos,diretor);
         this.generos = generos;
         super.setTotalDeAvaliacoes(totalDeAvaliacoes);
         super.setSomaAvaliacoes(somaAvaliacoes);
