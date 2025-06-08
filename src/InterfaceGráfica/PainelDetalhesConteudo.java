@@ -53,7 +53,7 @@ public class PainelDetalhesConteudo extends Style {
             JButton avaliar = new JButton("Adicionar Avaliação");
             botaoAvaliarTitulo(avaliar, titulo, avaliacao, painelPrincipal);
             avaliar.setAlignmentX(Component.CENTER_ALIGNMENT);
-            avaliar.setBackground(botao2);
+            avaliar.setBackground(corBotao2);
             avaliar.setForeground(Color.BLACK);
             avaliar.setFocusPainted(false);
             avaliar.setFont(new Font(fonteLetras, Font.BOLD, 14));
@@ -64,7 +64,7 @@ public class PainelDetalhesConteudo extends Style {
         imagemPanel.add(infoPanel);
         JPanel detalhesPanel = new JPanel();
         detalhesPanel.setLayout(new BoxLayout(detalhesPanel, BoxLayout.Y_AXIS));
-        detalhesPanel.setBackground(new Color(30, 30, 30));
+        detalhesPanel.setBackground(principalCor);
         detalhesPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
         JLabel anoDiretor = new JLabel(titulo.getAnoDeLancamento() + " | Dirigido por: " + titulo.getDiretor());

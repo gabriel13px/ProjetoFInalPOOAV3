@@ -9,6 +9,6 @@ abstract class Style {
     static Color principalCor = new Color(30, 30, 30);
     static String fonteLetras ="SansSerif";
     static Color corLetras = new Color(197, 197, 197);
-    static Color botao2= new Color(255, 215, 0);
+    static Color corBotao2 = new Color(255, 215, 0);
     static Color corBotao3= new Color(100, 100, 255);
 }

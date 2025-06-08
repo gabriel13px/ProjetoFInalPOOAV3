@@ -14,7 +14,6 @@ import Tipos.*;
 //vai ter uma opção de formulario para adicionar o filme, serie bla bla bla, é bom ver se vai permitir que o usuario escreva
 //caso não se for botoes isso simplifica a logica do banco de dados pois poderia se deixar um int ao inves de string
 //a função vai atualizar o banco de dados, mas custa ver se é melhor ja adicionar diretamente ao app ou ele recarregar com o novo filme adicionado
-//private String nome;
 
 public class BancoDeDados {
 
@@ -23,6 +22,7 @@ public class BancoDeDados {
     private FileWriter writer = null;
     private String linha;
     private ArrayList<ConteudoAudiovisual> Titulos;
+
     public BancoDeDados(String csvFile){
     this.csvFile = csvFile;
     this.arquivo = new File(this.csvFile);
@@ -144,7 +144,6 @@ public class BancoDeDados {
             }
         }
     }
-
 
     private int BuscarTitulo(String nome) {
         for(int titulo = 0; titulo < Titulos.size(); titulo++) {

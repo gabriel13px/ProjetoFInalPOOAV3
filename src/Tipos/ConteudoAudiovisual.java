@@ -38,7 +38,6 @@ public abstract class ConteudoAudiovisual implements Midia, Calculos {
     public void adicionarEpisodio(EpisodioSerie episodio){
     };
 
-    // Pode ser sobrescrito nas subclasses
     @Override
     public void exibirInformacoes() {
         System.out.println("Título: " + nome);

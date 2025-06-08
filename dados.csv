@@ -1,11 +1,11 @@
 Nome,Tipo,Imagem,Data de Lançamento,Duração em Minutos,Diretor,Soma das Avaliações,Quantidade de Avaliações,sinopse,Gêneros,Numero temporada,Numero Epsodio,Tipos.Serie pertencente
-Interestelar,Tipos.Filme,imagens/interestelar.jpg,2014,169,Christopher Nolan,82,13,Uma missão para salvar a humanidade leva astronautas a um buraco negro,drama&aventura&ficção científica,-,-,-
+Interestelar,Tipos.Filme,imagens/interestelar.jpg,2014,169,Christopher Nolan,101,15,Uma missão para salvar a humanidade leva astronautas a um buraco negro,drama&aventura&ficção científica,-,-,-
 O Poderoso Chefão,Tipos.Filme,imagens/chefao.jpg,1972,175,Francis Ford Coppola,9,1,A saga da família mafiosa Corleone,drama&crime&clássico,-,-,-
 Matrix,Tipos.Filme,imagens/matrix.jpg,1999,136,Lana Wachowski,21,6,Um hacker descobre a verdade sobre a realidade,ficção científica&distopia&ação,-,-,-
 Toy Story,Tipos.Filme,imagens/toystory.jpg,1995,81,John Lasseter,10,2,Brinquedos ganham vida quando os humanos não estão por perto,família&animação&comédia,-,-,-
-Titanic,Tipos.Filme,imagens/titanic.jpg,1997,195,James Cameron,9,1,Um romance trágico a bordo do navio Titanic,drama&romance&histórico,-,-,-
+Titanic,Tipos.Filme,imagens/titanic.jpg,1997,195,James Cameron,19,2,Um romance trágico a bordo do navio Titanic,drama&romance&histórico,-,-,-
 Stranger Things,Tipos.Serie,imagens/strangerthings.jpg,2016,50,Duffer Brothers,0,0,Garotos enfrentam eventos sobrenaturais em sua cidade,terror&ficção científica&mistério,-,-,-
-A Desaparição,Episodio,imagens/st1e1.jpg,2016,50,Duffer Brothers,0,0,Will desaparece misteriosamente,-,1,1,Stranger Things
+A Desaparição,Episodio,imagens/st1e1.jpg,2016,50,Duffer Brothers,1,1,Will desaparece misteriosamente,-,1,1,Stranger Things
 A Chegada,Episodio,imagens/st1e2.jpg,2016,49,Duffer Brothers,0,0,Onze aparece na cidade,-,1,2,Stranger Things
 O Desaparecimento de Will,Episodio,imagens/strangerthings_s1e1.jpg,2016,47,The Duffer Brothers,0,0,Menino desaparece e mistérios sobrenaturais surgem,-,1,1,Stranger Things
 A Estranha no Lado Invertido,Episodio,imagens/strangerthings_s1e2.jpg,2016,55,The Duffer Brothers,0,0,Surge uma garota misteriosa com poderes telecinéticos,-,1,2,Stranger Things
@@ -24,7 +24,7 @@ Passado e Presente,Episodio,imagens/dark_s1e3.jpg,2017,57,Baran bo Odar,0,0,Desc
 Verdades,Episodio,imagens/dark_s1e5.jpg,2017,59,Baran bo Odar,0,0,Personagens encaram revelações perturbadoras,-,1,5,Dark
 Brooklyn Nine-Nine,Tipos.Serie,imagens/b99.jpg,2013,21,Michael Schur,0,0,Delegacia do Brooklyn enfrenta crimes com humor,policial&comédia,-,-,-
 Breaking Bad,Tipos.Serie,imagens/breakingbad.jpg,2008,47,Vince Gilligan,0,0,Professor de química vira fabricante de metanfetamina,drama&crime&thriller,-,-,-
-Piloto,Episodio,imagens/breakingbad_s1e1.jpg,2008,58,Vince Gilligan,6,2,Walter White inicia seu envolvimento no tráfico de drogas,-,1,1,Breaking Bad
+Piloto,Episodio,imagens/breakingbad_s1e1.jpg,2008,58,Vince Gilligan,8,4,Walter White inicia seu envolvimento no tráfico de drogas,-,1,1,Breaking Bad
 Sherlock,Tipos.Serie,imagens/sherlock.jpg,2010,90,Mark Gatiss,0,0,O detetive Sherlock Holmes resolve casos modernos em Londres,drama&mistério&crime,-,-,-
 Um Estudo em Rosa,Episodio,imagens/sherlock_s1e1.jpg,2010,90,Paul McGuigan,0,0,Holmes e Watson resolvem seu primeiro caso juntos,-,1,1,Sherlock
 Arcane,Tipos.Serie,imagens/arcane.jpg,2021,45,Pascal Charrue,0,0,Duas irmãs lutam em lados opostos de uma guerra em Piltover,drama&animação&ação,-,-,-
@@ -57,3 +57,6 @@ O Retorno do Avatar,Episodio,imagens/avatar_s1e2.jpg,2005,23,Giancarlo Volpe,0,0
 O Templo do Ar do Sul,Episodio,imagens/avatar_s1e3.jpg,2005,23,Dave Filoni,0,0,Aang descobre o destino de seu povo,-,1,3,Avatar: A Lenda de Aang
 Os Guerreiros de Kyoshi,Episodio,imagens/avatar_s1e4.jpg,2005,23,Giancarlo Volpe,0,0,O grupo visita uma ilha protegida por guerreiras leais,-,1,4,Avatar: A Lenda de Aang
 O Rei de Omashu,Episodio,imagens/avatar_s1e5.jpg,2005,23,Anthony Lioi,0,0,Aang reencontra um velho amigo excêntrico,-,1,5,Avatar: A Lenda de Aang
+sim,Tipos.Serie,10,10,10,10,0,0,10,10,-,-,-
+10,Episodio,10,10,10,10,10,1,10,-,10,10,sim
+10,Tipos.Documentario,10,10,10,10,11,2,10,-,-,-,-
